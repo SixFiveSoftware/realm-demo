@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2044D9921E7F2707009472B3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2044D9911E7F2707009472B3 /* Task.swift */; };
+		2044D9941E7F274C009472B3 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2044D9931E7F274C009472B3 /* TaskList.swift */; };
 		20F234871E7E17CB00002375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F234861E7E17CB00002375 /* AppDelegate.swift */; };
 		20F234891E7E17CB00002375 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F234881E7E17CB00002375 /* ViewController.swift */; };
 		20F2348E1E7E17CB00002375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F2348D1E7E17CB00002375 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		2044D98F1E7F23A3009472B3 /* RealmTasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealmTasks.entitlements; sourceTree = "<group>"; };
+		2044D9911E7F2707009472B3 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		2044D9931E7F274C009472B3 /* TaskList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		20F234831E7E17CB00002375 /* RealmTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20F234861E7E17CB00002375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20F234881E7E17CB00002375 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2044D9901E7F26E4009472B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2044D9911E7F2707009472B3 /* Task.swift */,
+				2044D9931E7F274C009472B3 /* TaskList.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		20F2347A1E7E17CB00002375 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 		20F234851E7E17CB00002375 /* RealmTasks */ = {
 			isa = PBXGroup;
 			children = (
+				2044D9901E7F26E4009472B3 /* Models */,
 				2044D98F1E7F23A3009472B3 /* RealmTasks.entitlements */,
 				20F234861E7E17CB00002375 /* AppDelegate.swift */,
 				20F234881E7E17CB00002375 /* ViewController.swift */,
@@ -239,7 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2044D9941E7F274C009472B3 /* TaskList.swift in Sources */,
 				20F234891E7E17CB00002375 /* ViewController.swift in Sources */,
+				2044D9921E7F2707009472B3 /* Task.swift in Sources */,
 				20F234871E7E17CB00002375 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
