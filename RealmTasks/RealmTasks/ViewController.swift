@@ -17,14 +17,30 @@ class ViewController: UITableViewController {
     super.viewDidLoad()
     setupUI()
     
-    // using init(value:) can take a hash or array. has keys match property names.
-    //  this is just creating a Task and inserting it into the items List<Task>, not persisting anything yet.
-    items.append(Task(value: ["text": "My First Task"]))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
   }
   
   func setupUI() {
     title = "My Tasks"
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+  }
+  
+  // MARK: Functions
+  
+  func add() {
+    let alertController = UIAlertController(title: "New Task", message: "Enter Task Name", preferredStyle: .alert)
+    var alertTextField: UITextField!
+    alertController.addTextField { textField in
+      alertTextField = textField
+      textField.placeholder = "Task Name"
+    }
+    alertController.addAction(UIAlertAction(title: "Add", style: .default) { _ in
+      guard let text = alertTextField.text, !text.isEmpty else { return }
+      
+      self.items.append(Task(value: ["text": text]))
+      self.tableView.reloadData()
+    })
+    present(alertController, animated: true, completion: nil)
   }
   
   // MARK: UITableView
