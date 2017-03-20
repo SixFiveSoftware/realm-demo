@@ -12,11 +12,14 @@ import RealmSwift
 class ViewController: UITableViewController {
 
   var items = List<Task>()
+  var realm: Realm?
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     
+    realm = try? Realm()
+    print("realm url: \(realm?.configuration.fileURL?.absoluteString)")
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
   }
   
