@@ -11,7 +11,7 @@ import RealmSwift
 
 class ViewController: UITableViewController {
 
-  var items = List<Task>()
+  var items: Results<Task>?
   var realm: Realm?
 
   override func viewDidLoad() {
@@ -21,6 +21,7 @@ class ViewController: UITableViewController {
     realm = try? Realm()
     print("realm url: \(realm?.configuration.fileURL?.absoluteString)")
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+    items = realm?.objects(Task.self)
   }
   
   func setupUI() {
@@ -40,12 +41,10 @@ class ViewController: UITableViewController {
     alertController.addAction(UIAlertAction(title: "Add", style: .default) { _ in
       guard let text = alertTextField.text, !text.isEmpty else { return }
       
-//      self.items.append(Task(value: ["text": text]))
       let task = Task(value: ["text": text])
       try! self.realm?.write {
         self.realm?.add(task)
       }
-      self.tableView.reloadData()
     })
     present(alertController, animated: true, completion: nil)
   }
@@ -53,12 +52,12 @@ class ViewController: UITableViewController {
   // MARK: UITableView
   
   override func tableView(_ tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-    return items.count
+    return items?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    let item = items[indexPath.row]
+    let item = items![indexPath.row]
     cell.textLabel?.text = item.text
     cell.textLabel?.alpha = item.completed ? 0.5 : 1
     return cell
