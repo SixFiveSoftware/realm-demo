@@ -40,7 +40,11 @@ class ViewController: UITableViewController {
     alertController.addAction(UIAlertAction(title: "Add", style: .default) { _ in
       guard let text = alertTextField.text, !text.isEmpty else { return }
       
-      self.items.append(Task(value: ["text": text]))
+//      self.items.append(Task(value: ["text": text]))
+      let task = Task(value: ["text": text])
+      try! self.realm?.write {
+        self.realm?.add(task)
+      }
       self.tableView.reloadData()
     })
     present(alertController, animated: true, completion: nil)
