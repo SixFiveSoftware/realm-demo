@@ -21,7 +21,7 @@ class ViewController: UITableViewController {
     realm = try? Realm()
     print("realm url: \(realm?.configuration.fileURL?.absoluteString)")
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
-    items = realm?.objects(Task.self)
+    items = realm?.objects(Task.self).filter("completed = false")
   }
   
   func setupUI() {
