@@ -12,4 +12,8 @@ import RealmSwift
 final class Task: Object {
   dynamic var text = ""
   dynamic var completed = false
+  
+  override static func indexedProperties() -> [String] {
+    return ["text"]
+  }
 }
